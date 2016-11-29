@@ -2,8 +2,14 @@ class Account
 
   attr_reader :balance
 
+  OPENING_BALANCE = 0
+
   def initialize
-    @balance = 0
+    @balance = OPENING_BALANCE
+  end
+
+  def deposit(amount)
+    @balance + amount
   end
 
 end
