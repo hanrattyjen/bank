@@ -71,8 +71,3 @@ As a customer
 So that I can make the best financial decisions
 I would like to be able to print a statement from my Account
 ```
-```
-As a customer
-So that I can make the best financial decisions
-I would like to be able to save my transactions
-```
