@@ -12,6 +12,12 @@ To run the project, open irb and paste the following:
 require './lib/account'
 ```
 
+Initially I had a class for an Account, which handled the balance, credit, debits and printing a statement.
+This class was getting too large so I decided to split off some of the functionality.
+A Statement class was created which would handle adding a transaction onto the statement. A statement class is created when an Account is initialized.  
+When the print_statement is called from the Account class, it would be printed into the irb console.
+
+
 
 #### User Stories
 ```
