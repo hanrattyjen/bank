@@ -9,43 +9,36 @@ class Account
 
   def initialize
     @balance = OPENING_BALANCE
+    @transactions = []
   end
 
   def deposit(amount)
     @balance += amount
     # need this transaction as an array of date, credit and amount
-    credit_array = [Date.today, 0, amount, @balance]
+    date = Date.today.strftime("%d/%m/%Y")
+    credit_array = [date, 0, amount, @balance]
       #convert_transaction_array_to_string = array.join(",")
-    credit_array.join(",")
-    # save this transaction to a file
-    save_to_file(credit_array)
-      # call to save_to_file method
+    save_to_statement(credit_array)
   end
 
   def withdraw(amount)
     fail "Cannot withdraw. You have no money fool!" if (@balance - amount < 0)
     @balance -= amount
+    date = Date.today.strftime("%d/%m/%Y")
     # need this transaction as an array of date, debit and amount
-    debit_array = [Date.today, amount, 0, @balance]
-      #convert_transaction_array_to_string = array.join(",")
-    debit_array.join(",")
-    # save this transaction to a file
-    save_to_file(debit_array)
-    # call to save_to_file method
-  end
-
-  def print_statement(array)
-    # loads the file
-    # formats it nicely
-    line_width = 50
-    puts date.ljust(line_width) + " | " + credit.center(line_width) + " | " + debit.center(line_width) + " | " + balance.center(line_width) + " |"
-  end
-
-  def save_to_file(string)
-    CSV.open("account", "w") do |transaction_row|
-      transaction_row << string
+    debit_array = [date, amount, 0, @balance]
+    save_to_statement(debit_array)
     end
+
+  def print_statement
+    load_file
   end
+
+  def save_to_statement(string)
+    @transactions << string
+  end
+
+
 end
 
   # transaction
