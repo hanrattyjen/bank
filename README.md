@@ -1,22 +1,37 @@
 This is a small ruby project which models a bank account.
 
-At the minute using irb, a customer can deposit and withdraw money and check their balance.
+Using irb, a customer can deposit and withdraw money, check their balance and print a statement.
 
-To run, fork this repo. Run 'bundle' to install rspec.
+#### Installation
 
-You can run rspec by typing 'rspec' into the root of the directory. This will show all passing or failing tests.
-
-To run the project, open irb and paste the following:
+Fork this repo.
+Open irb on the commandline and paste the following:
 
 ```
 require './lib/account'
 ```
 
-Initially I had a class for an Account, which handled the balance, credit, debits and printing a statement.
-This class was getting too large so I decided to split off some of the functionality.
-A Statement class was created which would handle adding a transaction onto the statement. A statement class is created when an Account is initialized.  
-When the print_statement is called from the Account class, it would be printed into the irb console.
+#### Testing
 
+Run 'bundle' to install rspec.
+
+Typing 'rspec' into the root of the directory will run the rspec testing suite. This will show all passing or failing tests.
+
+#### My approach to this challenge
+
+I began this mini-project with a single class for Account, which was able to handle a user's balance, credit, debits as well as printing a statement.
+The class become too large so I decided to split off some of the functionality.
+
+A Statement class was created and this is initialized when the Account class is first initialized.  The Statement class handles adding a transaction onto the statement.
+
+When the print_statement is called from the Account class, a user's bank statement is printed into the irb console.  It is formatted in this manner:
+
+```
+date       || credit || debit   || balance
+14/01/2012 ||        || 500.00  || 2500.00
+13/01/2012 || 2000.00||         || 3000.00
+10/01/2012 || 1000.00||         || 1000.00
+```
 
 
 #### User Stories
@@ -55,27 +70,3 @@ As a customer
 So that I can make the best financial decisions
 I would like to be able to save my transactions
 ```
-
-
-## Specification
-
-### Requirements
-
-* You should be able to interact with the your code via IRB.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
-
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2012
-**And** a deposit of 2000 on 13-01-2012
-**And** a withdrawal of 500 on 14-01-2012
-**When** she prints her bank statement
-**Then** she would see
-
-```
-date       || credit || debit   || balance
-14/01/2012 ||        || 500.00  || 2500.00
-13/01/2012 || 2000.00||         || 3000.00
-10/01/2012 || 1000.00||         || 1000.00
