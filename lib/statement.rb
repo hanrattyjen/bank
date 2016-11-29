@@ -18,6 +18,8 @@ class Statement
     save_to_statement(debit_array)
   end
 
+  private
+
   def save_to_statement(transaction)
     @transactions << transaction
   end
