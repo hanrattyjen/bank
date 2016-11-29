@@ -6,19 +6,18 @@ class Statement
     @transactions = []
   end
 
-  def credit_transaction(amount)
+  def credit_transaction(amount, balance)
     date = Date.today.strftime("%d/%m/%Y")
-    credit_array = [date, 0, amount, @balance]
+    credit_array = [date, 0, amount, balance]
       #convert_transaction_array_to_string = array.join(",")
     save_to_statement(credit_array)
   end
 
-  def debit_transaction(amount)
+  def debit_transaction(amount, balance)
     date = Date.today.strftime("%d/%m/%Y")
-    debit_array = [date, amount, 0, @balance]
+    debit_array = [date, amount, 0, balance]
     save_to_statement(debit_array)
   end
-
 
   def save_to_statement(transaction)
     @transactions << transaction
