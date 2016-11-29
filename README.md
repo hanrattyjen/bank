@@ -1,3 +1,18 @@
+This is a small ruby project which models a bank account.
+
+At the minute using irb, a customer can deposit and withdraw money and check their balance.
+
+To run, fork this repo. Run 'bundle' to install rspec.
+
+You can run rspec by typing 'rspec' into the root of the directory. This will show all passing or failing tests.
+
+To run the project, open irb and paste the following:
+
+```
+require './lib/account'
+```
+
+
 #### User Stories
 ```
 As a customer
