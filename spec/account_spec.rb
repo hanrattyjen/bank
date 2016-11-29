@@ -18,5 +18,9 @@ describe Account do
       subject.deposit(10)
       expect(subject.withdraw(10)).to eq 0
     end
+
+    it 'should not allow a customer to go into the red' do
+      expect{subject.withdraw(10)}.to raise_error "Balance is 0. You cannot withdraw funds."
+    end
   end
 end

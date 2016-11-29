@@ -16,6 +16,11 @@ I would like to be able to withdraw money from my Account
 ```
 ```
 As a customer
+so that I don't go into massive amounts of debit
+I would like to be able go under my zero balance
+```
+```
+As a customer
 So that I can make the best financial decisions
 I would like to be able to see the balance of my account at any time
 ```

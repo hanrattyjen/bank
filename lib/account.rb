@@ -13,6 +13,7 @@ class Account
   end
 
   def withdraw(amount)
+    fail 'Balance is 0. You cannot withdraw funds.' unless (@balance - amount) >= 0
     @balance -= amount
   end
 
