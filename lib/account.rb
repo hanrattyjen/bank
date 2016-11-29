@@ -1,5 +1,4 @@
 require 'date'
-require 'csv'
 
 class Account
 
