@@ -17,4 +17,15 @@ class Account
     @balance -= amount
   end
 
+  def balance
+    @balance
+  end
+
+  # transaction
+    # date
+    # amount
+    # deposit or withdrawal
+    # push each transaction onto a new row of a csv file
+    # calculates balance as it goes
+
 end
