@@ -15,7 +15,6 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    # need this transaction as an array of date, credit and amount
     @statement.credit_transaction(amount, @balance)
   end
 
@@ -26,14 +25,17 @@ class Account
   end
 
   def print_statement
-    # pulls in statement from statement class and prints to console
+    print_new
+    @statement.transactions.each do |transactions|
+      return transactions.join("   || ")
+    end
+  end
+
+  private
+
+  def print_new
+    line_width = 8
+    puts "date".ljust(line_width) + " || " + "credit".center(line_width) + " || " + "debit".center(line_width) + " || " + "balance".rjust(line_width)
   end
 
 end
-
-  # transaction
-    # date
-    # amount
-    # deposit or withdrawal
-    # push each transaction onto a new row of a csv file
-    # calculates balance as it goes

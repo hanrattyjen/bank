@@ -38,8 +38,10 @@ describe Account do
     end
   end
 
-  context 'saving transactions to a file' do
-    it 'allows customer to save each transaction to a file' do
+  context 'printing a statement' do
+    it 'will print out a statement for a user' do
+      subject.deposit(20)
+      expect(subject.print_statement).to eq "29/11/2016   || 0.00   || 20.00   || 20.00"
     end
   end
 
