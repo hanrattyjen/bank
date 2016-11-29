@@ -2,6 +2,7 @@ require 'account'
 
 describe Account do
   subject(:account) {described_class.new}
+  let(:statement) { double(:statement) }
 
   describe 'initialization' do
     it 'should have a starting balance of zero' do
