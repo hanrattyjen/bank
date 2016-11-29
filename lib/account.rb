@@ -1,3 +1,5 @@
+require 'Date'
+
 class Account
 
   attr_reader :balance
@@ -13,13 +15,18 @@ class Account
   end
 
   def withdraw(amount)
-    fail 'Balance is 0. You cannot withdraw funds.' unless (@balance - amount) >= 0
+    fail "Cannot withdraw. You have no money fool!" if (@balance - amount < 0)
     @balance -= amount
   end
 
-  def balance
-    @balance
+  def save_to_file
+
   end
+end
+
+
+
+
 
   # transaction
     # date
@@ -27,5 +34,3 @@ class Account
     # deposit or withdrawal
     # push each transaction onto a new row of a csv file
     # calculates balance as it goes
-
-end
