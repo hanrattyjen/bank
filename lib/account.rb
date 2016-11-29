@@ -2,8 +2,7 @@ require 'date'
 
 class Account
 
-  attr_reader :balance
-  attr_accessor :statement
+  attr_reader :balance, :statement
 
   OPENING_BALANCE = 0
 
