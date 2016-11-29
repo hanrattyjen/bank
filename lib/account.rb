@@ -3,7 +3,7 @@ require 'csv'
 
 class Account
 
-  attr_reader :balance
+  attr_reader :balance, :transactions
 
   OPENING_BALANCE = 0
 
@@ -31,11 +31,18 @@ class Account
     end
 
   def print_statement
-    load_file
+    @transactions.each do |trans|
+    #   trans.each do |e|
+        print trans
+      end
+      # transaction.each_with_index do |e, i|
+      #   puts e[0] + " " + e[1] + " " + e[2] + " " + e[3]
+      # end
+    # end
   end
 
-  def save_to_statement(string)
-    @transactions << string
+  def save_to_statement(transaction)
+    @transactions << transaction
   end
 
 
